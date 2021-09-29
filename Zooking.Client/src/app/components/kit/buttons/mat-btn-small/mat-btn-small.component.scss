@@ -1,0 +1,33 @@
+.btn-small {
+  background-color: var(--mat-btn);
+  padding: 17px 19px;
+  // margin-left: 5px;
+  // margin-right: 5px;
+  border-radius: 50px;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  border: none;
+  line-height: 1;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: background-color 0.1s ease-in-out;
+}
+
+.btn-small:hover {
+  background-color: var(--mat-btn-hover);
+}
+
+.btn-small:disabled {
+  background-color: rgb(139, 139, 139);
+}
+
+.material-icons {
+  margin-right: 7px;
+  font-size: 15px;
+}

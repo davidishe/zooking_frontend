@@ -1,0 +1,8 @@
+<div class="form-input">
+
+  <label *ngIf="label" class="label" for="{{id}}"></label>
+  <input class="input" #input (blur)="onTouched()" [placeholder]="placeholder" [value]="value" [disabled]="true"
+    [ngClass]="{'opacity': opacify}">
+
+
+</div>

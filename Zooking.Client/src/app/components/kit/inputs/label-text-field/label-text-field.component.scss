@@ -1,0 +1,67 @@
+.form-input {
+  display: grid;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.label {
+  top: 10px;
+  position: relative;
+  margin-left: 13px;
+  font-size: var(--small);
+  color: var(--font);
+  width: fit-content;
+  padding: 5px 5px;
+}
+
+.opacity {
+  opacity: 0.6;
+}
+
+.input {
+  border-radius: var(--input-border-radius);
+  padding: 17px 15px;
+  border: 1px transparent solid;
+  font-size: var(--standard);
+  background-color: var(--background);
+}
+
+input::placeholder {
+  color: lightgrey;
+}
+
+.input:hover {
+  border-color: transparent;
+}
+
+.edited {
+  border-color: transparent;
+}
+
+.invalid-feedback {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  bottom: -16px;
+  font-size: var(--small);
+  padding-left: 19px;
+
+  .validator {
+    font-size: 11px;
+    color: var(--error);
+    // padding-left: 24px;
+    position: relative;
+  }
+}
+
+.eye {
+  position: absolute;
+  right: 0px;
+  margin-right: 10px;
+  display: flex;
+  top: 54%;
+  border: none;
+  background-color: transparent;
+}

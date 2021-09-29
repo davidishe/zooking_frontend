@@ -1,0 +1,22 @@
+.item-content-grid {
+  display: flex;
+}
+
+.item-content-inner {
+  padding: 30px;
+  max-width: 500px;
+  display: flex;
+  justify-content: flex-start;
+  line-height: 1.5rem;
+}
+
+@media (max-width: 770px) {
+  .item-content-grid {
+    display: grid;
+  }
+
+  .item-content-inner {
+    padding: 0px;
+    padding-top: 20px;
+  }
+}

@@ -1,0 +1,25 @@
+<form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+
+  <app-input-text [placeholder]="'Василий Цветков'" formControlName="inputDisplayName" [label]="'Имя'"
+    [id]="'inputDisplayName'" [type]="'text'" [value]="''">
+  </app-input-text>
+
+  <app-input-text [placeholder]="'username@mail.com'" formControlName="inputLogin" [label]="'Логин'" [id]="'inputLogin'"
+    [type]="'email'" [value]="''">
+  </app-input-text>
+
+  <app-input-text [placeholder]="'password'" formControlName="inputPassword" [label]="'Пароль'" [id]="'inputPassword'"
+    [value]="''">
+  </app-input-text>
+
+  <br>
+
+  <app-login-btn [disabled]="!formRegister.invalid" [form]="formRegister" text="Создать">
+  </app-login-btn>
+
+
+  <br>
+  <div class="login-info" (click)="displayService.toogle(0)">
+    Уже зарегистрированы?
+  </div>
+</form>

@@ -1,0 +1,27 @@
+<div class="card-wrapper">
+  <div class="mat-card-main">
+    <div class="card-body">
+      <h3 class="card-title">{{item.name}}</h3>
+      <div class="card-text">{{item.description | slice:0:60}}...</div>
+      <div class="card-text-user" *ngIf="item.userName"> <b>Запись добавил пользователь </b>{{item.userName}}</div>
+      <div class="img-wrapper">
+        <img *ngIf="item.pictureUrl" src="{{item.pictureUrl}}" alt="{{item.name}}">
+        <app-icon class="icon" *ngIf="!item.pictureUrl && detailedMode" [icon]="'add_photo_alternate'"
+          (click)="file.click()"> </app-icon>
+        <app-icon class="icon" *ngIf="!item.pictureUrl && !detailedMode" [icon]="'no_photography'"> </app-icon>
+
+        <app-icon class="icon icon-edit" *ngIf="item.pictureUrl && detailedMode" [icon]="'edit'" (click)="file.click()">
+        </app-icon>
+
+
+        <input type="file" #file placeholder="Выбери файл" (change)="onImageUpload(file.files, item)"
+          style="display: none;" id="file">
+      </div>
+    </div>
+  </div>
+  <div class="card-footer-wrapper">
+    <app-mat-btn-small text="Подробнее" *ngIf="detailedMode === false" [routerLink]="[ link, type, item.id]">
+    </app-mat-btn-small>
+  </div>
+
+</div>

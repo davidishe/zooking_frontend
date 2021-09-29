@@ -1,0 +1,34 @@
+<div class="spec-container">
+  <div class="container" *ngIf="items">
+    <div class="grid-wrapper">
+      <div class="grid">
+        <ng-container *ngFor="let item of items; let i=index">
+          <div class="app-card">
+
+            <app-mat-card-hero [item]="item" [link]="link" [type]="type" style="margin-bottom: 20px; "
+              [detailedMode]="false">
+            </app-mat-card-hero>
+          </div>
+
+        </ng-container>
+
+      </div>
+
+      <ng-container *ngIf="items.length === 0">
+        <div class="no-items-wrapper">
+          Здесь пока пусто
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+
+
+  <div class="container" style="background-color: #FFFFFF;">
+    <div *ngIf="!items" class="spinner-wrapper">
+      <mat-spinner>
+
+      </mat-spinner>
+    </div>
+  </div>
+</div>

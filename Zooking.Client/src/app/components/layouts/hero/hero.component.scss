@@ -1,0 +1,13 @@
+.hero-wrapper {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 800px) {
+  .hero-wrapper {
+    padding-top: 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+}

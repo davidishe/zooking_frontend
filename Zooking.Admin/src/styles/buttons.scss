@@ -1,0 +1,52 @@
+.mat-btn-wrapper {
+  justify-content: center;
+  vertical-align: middle;
+
+  .mat-btn-service {
+    bottom: 2px;
+    height: 55px;
+    position: relative;
+    top: 3.5px;
+    padding-left: 30px;
+    border-radius: 30px;
+    background-color: rgb(32, 32, 32);
+
+    mat-icon {
+      position: relative;
+      bottom: 1.9px;
+    }
+  }
+
+  .mat-btn-service:hover,
+  .mat-btn-service:focus,
+  .mat-btn-servicen:active {
+    background-color: #000000;
+  }
+}
+
+button.mat-btn {
+  font-family: "IBM Plex Sans", sans-serif !important;
+  cursor: pointer;
+  line-height: 3rem;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #131313 !important;
+  color: white;
+  text-align: center;
+  padding-right: 20px;
+  padding-left: 6px;
+  border-radius: 0px;
+  width: 100%;
+
+  .material-icons {
+    position: relative;
+    top: 2px;
+    font-size: 18px;
+  }
+}
+
+button.mat-btn:hover {
+  background-color: black !important;
+  color: white;
+}

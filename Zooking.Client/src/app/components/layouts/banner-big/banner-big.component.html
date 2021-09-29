@@ -1,0 +1,42 @@
+<div class="container" style="display: flex; justify-content: center;">
+  <div class="banner">
+
+    <div class="banner-text-wrapper" [ngClass]="{'disabled-banner': inProcessVisible }">
+      <div class="banner-text">
+
+        <div class="banner-text-title">
+          <h2>
+            {{mainText}}
+          </h2>
+          <div class="inprocess-wrapper" [ngClass]="{'hidden': !inProcessVisible}">
+            <i class="material-icons">
+              hourglass_top
+            </i>
+            <span>
+              раздел в разработке
+            </span>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="btn-wrapper">
+
+        <p class="banner-text-subtext">
+          {{subText}}
+        </p>
+      </div>
+    </div>
+
+
+    <a class="btn-inner">
+      <app-mat-button *ngIf="!btnDisabled" [routerLink]="[ path ]" style="text-decoration: none;" [text]="btnText"
+        icon="{{btnIcon}}" [disabled]="btnDisabled">
+      </app-mat-button>
+    </a>
+
+
+
+  </div>
+</div>

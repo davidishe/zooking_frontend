@@ -1,0 +1,18 @@
+<div class="user-card-wrapper">
+
+  <div>
+    <mat-selection-list #roleList>
+      <mat-list-option (click)="btnDisabled = false" *ngFor="let role of roles;" [value]="role.value"
+        [disabled]="role.value === 'User'" [selected]="getCheckboxStatus(user.userRoles, role.value)" [checked]="true"
+        style="min-width: 300px;">
+        {{role.name}}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+
+  <div class="btn-wrapper">
+    <app-mat-btn-small text="Сохранить" (click)="submit(user.id)" [disabled]="btnDisabled">
+    </app-mat-btn-small>
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="spec-container">
+  <app-title text="Список пользователей" subtext="Смотри и управляй пользователями в приложении"></app-title>
+
+  <div class="container">
+    <table style="width:100%">
+      <div class="table-content" *ngFor="let user of users; index as usersIndex">
+        <div class="left">
+          <span>
+            {{user.displayName}}
+          </span>
+          <span class="email">
+            {{user.email}}
+          </span>
+        </div>
+        <div class="right">
+
+
+          <app-user-card style="width: 100%;" [user]="user"></app-user-card>
+
+
+        </div>
+
+      </div>
+
+
+    </table>
+  </div>
+</div>

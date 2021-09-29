@@ -1,0 +1,108 @@
+:root {
+  --error: red;
+  --grey: lightgrey;
+
+  // main colors
+  --c2: #57097e;
+  --c2-hover: #8a08be;
+  --primary: rgb(249, 249, 249);
+
+  // font
+  --font: var(--font-default);
+  --font-default: rgba(8, 9, 44, 0.748) !important;
+  --font-dark: rgb(211, 211, 211) !important;
+
+  // font
+  --grey: var(--font-default);
+  --grey-default: rgba(36, 36, 36, 0.748) !important;
+  --grey-dark: rgb(211, 211, 211) !important;
+
+  // carousel
+  --background-carousel: var(--background-carousel-default);
+  --background-carousel-default: rgb(235, 235, 235);
+  --background-carousel-dark: rgb(102, 102, 102);
+
+  // navbar
+  --navbar-background: var(--navbar-background-default);
+  --navbar-background-default: white;
+  --navbar-background-dark: transparent;
+
+  // font
+  --font-hover: var(--font-hover-default);
+  --font-hover-default: black;
+  --font-hover-dark: white;
+
+  // black white
+  --monochrome: var(--monochrome-default);
+  --monochrome-default: white;
+  --monochrome-dark: black;
+
+  // svg footer smm
+  --logo-color: var(--logo-color-default);
+  --logo-color-default: #ab00ff;
+  --logo-color-dark: white;
+
+  // page background
+  --background: var(--background-default);
+  --background-default: #fdfcfc;
+  --background-dark: #424242;
+
+  // background card
+  --background-card: var(--background-card-default);
+  --background-card-default: white;
+  --background-card-dark: #353535;
+
+  // mat form field
+  --form-field-background: var(--form-field-background-default);
+  --form-field-background-default: rgb(244, 244, 244);
+  --form-field-background-dark: #504f4f;
+
+  // footer
+  --footer-link-hover: black;
+  --background-footer: white;
+  --background-footer-dark: #3d3d3d;
+
+  // svg footer smm
+  --svg-footer: var(--svg-footer-default);
+  --svg-footer-default: black;
+  --svg-footer-dark: white;
+
+  --mat-btn: var(--mat-btn-default);
+  --mat-btn-default: rgba(8, 9, 44, 0.75);
+  --mat-btn-dark: rgb(36, 36, 36);
+
+  --mat-btn-hover: var(--mat-btn-hover-default);
+  --mat-btn-hover-default: rgb(44, 42, 42);
+  --mat-btn-hover-dark: rgb(0, 0, 0);
+
+  // inputs
+  --form-field-background: transparent;
+
+  // banner
+  --svg-banner: var(--svg-banner-default);
+  --svg-banner-2: var(--svg-banner-2-default);
+  --svg-banner-default: rgb(44, 44, 44);
+  --svg-banner-dark: rgb(173, 173, 173);
+  --svg-banner-2-default: #ab00ff;
+  --svg-banner-2-dark: #ab00ff;
+
+  // scroll dropdown
+  --nav-scroll: var(--nav-scroll-default);
+  --nav-scroll-default: #ebebeb;
+  --nav-scroll-dark: rgb(83, 82, 82);
+
+  // scroll dropdown inner
+  --nav-scroll-hover: var(--nav-scroll-hover-default);
+  --nav-scroll-hover-default: #cecedf;
+  --nav-scroll-hover-dark: rgb(75, 74, 74);
+
+  // menu dropdown
+  --drop-down-nav: var(--drop-down-nav-default);
+  --drop-down-nav-default: white;
+  --drop-down-nav-dark: rgba(54, 54, 54, 0.9);
+
+  // menu dropdown inner
+  --drop-down-nav-inner: var(--drop-down-nav-default);
+  --drop-down-nav-inner-default: rgba(241, 241, 241, 0.9);
+  --drop-down-nav-inner-dark: rgba(66, 66, 66, 0.9);
+}

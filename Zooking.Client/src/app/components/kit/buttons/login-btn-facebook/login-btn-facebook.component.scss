@@ -1,0 +1,53 @@
+.login-btn {
+  cursor: pointer;
+  line-height: 3.8rem !important;
+  font-size: 14px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: var(--c2);
+  color: white;
+  padding-right: 30px;
+  padding-left: 25px;
+  border-radius: var(--btn-border-radius);
+  justify-content: center;
+  display: flex !important;
+  vertical-align: middle !important;
+  align-items: center !important;
+  border: 0px transparent solid;
+  color: whitesmoke;
+  transition: 0.8s;
+  overflow: hidden;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+
+  svg {
+    font-size: 22px !important;
+    top: 0px !important;
+    position: relative;
+    margin-right: 15px;
+  }
+}
+
+// .login-btn:hover {
+//   background-color: var(--c2-hover);
+//   color: white;
+// }
+
+// .login-btn:disabled {
+//   background-color: darkgray;
+//   cursor: initial;
+// }
+
+// .login-btn-login {
+//   min-width: 300px;
+//   width: 100%;
+//   justify-content: center;
+// }
+
+.login-btn-login-facebook {
+  background-color: #3a599d;
+}
+
+.login-btn-login-facebook:hover {
+  background-color: #315196 !important;
+}

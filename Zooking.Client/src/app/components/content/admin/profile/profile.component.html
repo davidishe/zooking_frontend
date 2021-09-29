@@ -1,0 +1,202 @@
+<main class="spec-container">
+  <section class="container" *ngIf="(currentUser$ | async)">
+    <app-title [text]="(currentUser$ | async).displayName"
+      [subtext]="'Здесь можно менять настройки твоего профиля туда-сюда'">
+    </app-title>
+    <div class="user-card">
+
+      <div class="user-card-left">
+        <div class="user-card-image">
+          <img *ngIf="(currentUser$ | async).pictureUrl" src="{{(currentUser$ | async).pictureUrl}}" class="img-fluid"
+            (click)="file.click()">
+        </div>
+
+        <div *ngIf="!(currentUser$ | async).pictureUrl" (click)="file.click()" class="img-fluid no-photo">
+          <app-icon [icon]="'create'">
+          </app-icon>
+        </div>
+        <input class="hidden" type="file" #file placeholder="Выбери файл" (change)="uploadFile(file.files)"
+          style="display:none;">
+
+        <br>
+        <app-mat-btn-small text="Обновить фото" (click)="file.click()" [disabled]="false">
+        </app-mat-btn-small>
+      </div>
+      <div class="user-card-content user-card-section">
+        <div class="user-card-content-inner">
+
+          <div style="display: block;">
+            <div class="status-title">
+              {{(currentUser$ | async).displayName}}
+            </div>
+            <div *ngIf="!(currentUser$ | async).userDescription" style="opacity: 0.7;">
+              Расскажите о себе что-нибудь
+            </div>
+            <div *ngIf="(currentUser$ | async).userDescription" style="word-wrap: break-word;">
+              {{(currentUser$ | async).userDescription}}
+            </div>
+            <br>
+            <app-mat-btn-small (click)="openDialog()" text="Редактировать данные" (click)="2" [disabled]="false">
+            </app-mat-btn-small>
+
+
+          </div>
+
+
+
+
+
+          <!-- <div class="form-control-profile" *ngIf="(currentUser$ | async).address">
+                  <div class="content-text">
+                    {{(currentUser$ | async).address.zipCode}},
+                    {{(currentUser$ | async).address.city}},
+                    {{(currentUser$ | async).address.street}},
+                    {{(currentUser$ | async).address.house}},
+                  </div>
+                </div> -->
+
+          <!-- <div class="form-control-profile" *ngIf="!(currentUser$ | async).address">
+                  <div class="content-text">
+      
+                  </div>
+                </div> -->
+
+        </div>
+
+
+      </div>
+
+      <div class="user-card-section">
+        <div class="user-card-header">
+          <div class="status-title">Текущий статус</div>
+          <div class="status-wrapper">
+            <div class="status-name">Готов помогать</div>
+            <div class="status-icon"></div>
+          </div>
+          <br>
+          <app-mat-btn-small text="Изменить" [disabled]="false">
+          </app-mat-btn-small>
+        </div>
+
+        <div class="user-card-header">
+          <div class="status-title">Локация</div>
+          <div class="status-wrapper">
+            <div class="status-name">Барнаул</div>
+          </div>
+          <br>
+          <app-mat-btn-small text="Изменить" [disabled]="false">
+          </app-mat-btn-small>
+        </div>
+      </div>
+
+
+
+      <div class="user-card-header user-card-section">
+        <div class="status-title">Роли</div>
+        <div class="status-wrapper" style="display: grid;">
+          <ng-container *ngFor="let role of (currentUser$ | async).userRoles">
+            <div class="status-name" style="display: table-cell;">{{mapRoleName(role)}}</div>
+          </ng-container>
+        </div>
+        <br>
+        <app-mat-btn-small text="Изменить роли" [disabled]="false">
+        </app-mat-btn-small>
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+  <section class="container">
+    <p>
+      У вас появились животные на временном содержании, зарегистрируйте их
+    </p>
+    <app-mat-btn-small (click)="2" text="Зарегистрировать" [disabled]="false">
+    </app-mat-btn-small>
+  </section>
+
+  <section class="container">
+    <p>
+      Зарегистрируйте приют, представителем которого вы являетесь
+    </p>
+    <app-mat-btn-small (click)="2" text="Зарегистрировать" [disabled]="false">
+    </app-mat-btn-small>
+  </section>
+
+
+  <section class="container">
+    <p>
+      Заполните дополнительные данные о компании
+    </p>
+    <app-mat-btn-small (click)="2" text="Заполнить" [disabled]="false">
+    </app-mat-btn-small>
+  </section>
+
+  <section class="container">
+    <p>
+      Вы представитель компании - добавьте услуги, которые хотите предоставлять бесплатно
+    </p>
+    <app-mat-btn-small (click)="2" text="Добавить" [disabled]="false">
+    </app-mat-btn-small>
+  </section>
+
+
+</main>
+
+
+
+
+
+
+
+
+
+
+<form [formGroup]="formAddress" *ngIf="false" (keydown.enter)="onAddressSubmit(); addressEdited = false">
+  <div class="form-control-profile">
+    <div [placeholder]="'Город'" formControlName="city" [id]="'city'" [type]="'text'" *ngIf="!addressEdited"
+      [value]="'Адрес не заполнен'">
+    </div>
+
+    <div *ngIf="(currentUser$ | async).address">
+      <app-input-text [placeholder]="'000000'" formControlName="zipCode" [id]="'zipCode'" [type]="'number'"
+        *ngIf="addressEdited" [value]="(currentUser$ | async).address.zipCode">
+      </app-input-text>
+    </div>
+
+    <app-mat-btn-small (click)="addressEdited = true" *ngIf="!addressEdited" text="Редактировать" [disabled]="false">
+    </app-mat-btn-small>
+  </div>
+
+
+  <div *ngIf="!(currentUser$ | async).address && addressEdited" class="form-control-profile">
+    <app-input-text [placeholder]="'000000'" formControlName="zipCode" [id]="'zipCode'" [type]="'number'" [value]="''">
+    </app-input-text>
+    <app-input-text [placeholder]="'Тюльпаноград'" formControlName="city" [id]="'city'" [type]="'text'" [value]="''">
+    </app-input-text>
+
+    <app-input-text [placeholder]="'Цветочная'" formControlName="street" [id]="'street'" [type]="'text'" [value]="''">
+    </app-input-text>
+
+    <app-input-text [placeholder]="'22'" formControlName="house" [id]="'house'" [type]="'text'" [value]="''">
+    </app-input-text>
+  </div>
+
+
+
+  <div class="form-control-buttons">
+    <app-mat-btn-small *ngIf="addressEdited" (click)="addressEdited = false" text="Отменить" [disabled]="false">
+    </app-mat-btn-small>
+
+    <app-mat-btn-small *ngIf="addressEdited" (click)="onAddressSubmit(); addressEdited = false" text="Сохранить"
+      [disabled]="false">
+    </app-mat-btn-small>
+
+  </div>
+
+
+
+</form>

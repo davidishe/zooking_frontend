@@ -1,0 +1,33 @@
+<div class="dialog-wrapper">
+  <h2 mat-dialog-title>Изменение данных</h2>
+  <div mat-dialog-content class="mat-typography">
+    <p>Обнови необходимые данные в форме, если это необходимо, и нажми кнопку "Сохранить"</p>
+
+
+    <form [formGroup]="formProfile" (keydown.enter)="onProfileSubmit()" style="height: 100%;">
+      <app-input-text [placeholder]="'Никнейм'" formControlName="displayName" [id]="'displayName'" [type]="'text'"
+        [value]="(currentUser$ | async).displayName">
+      </app-input-text>
+
+      <app-input-text [placeholder]="'Расскажите о себе что-нибудь'" formControlName="userDescription"
+        [id]="'userDescription'" [type]="'text'" *ngIf="(currentUser$ | async).userDescription"
+        [value]="(currentUser$ | async).userDescription">
+      </app-input-text>
+
+      <app-input-text [placeholder]="'Расскажите о себе что-нибудь'" formControlName="userDescription"
+        [id]="'userDescription'" [type]="'text'" *ngIf="!(currentUser$ | async).userDescription" [value]="''">
+      </app-input-text>
+
+    </form>
+  </div>
+
+  <mat-dialog-actions align="end" style="padding-bottom: 20px;">
+    <app-mat-btn-small mat-dialog-close text="Отмена" [disabled]="false" style="margin-right: 10px;">
+    </app-mat-btn-small>
+
+    <app-mat-btn-small [mat-dialog-close]="true" style="margin-right: 20px;" text="Сохранить"
+      (click)="onProfileSubmit();" [disabled]="false">
+    </app-mat-btn-small>
+
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,42 @@
+button.material-btn {
+  cursor: pointer;
+  line-height: 1.2rem;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--font);
+
+  padding: 7px 12px;
+
+  margin-top: clamp(5px, 4vw, 5px);
+  margin-bottom: 10px;
+  margin-right: 10px;
+  position: relative;
+  background-color: var(--c2);
+  color: white;
+  text-align: center;
+
+  max-width: 300px;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: space-around;
+  transition: background-color 0.3s ease-in-out;
+
+  display: flex;
+  min-width: 135px;
+  border: none;
+  border-radius: 50px;
+}
+
+button.material-btn:hover {
+  background-color: var(--c2-hover);
+  color: white;
+}
+button:disabled,
+button:hover:disabled {
+  background-color: grey;
+}
+
+.material-icons {
+  margin-right: 7px;
+  font-size: 15px;
+}

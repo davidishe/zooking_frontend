@@ -1,0 +1,82 @@
+<div class="nav-wrapper">
+  <div class="spec-container">
+    <nav class="nav-app">
+      <div class="nav-toggle">
+        <svg *ngIf="!sideNavService.isOpened() && (currentUser$ | async)" xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24" fill="var(--font)" color="var(--font)" width="36px" height="36px"
+          (click)="sideNavService.toggle()">
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+        </svg>
+
+        <svg [routerLink]="[ '/' ]" *ngIf="true && !(currentUser$ | async)" xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24" fill="var(--font)" color="var(--font)" width="36px" height="36px">
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" />
+        </svg>
+      </div>
+
+
+      <div class="nav-content">
+        <!-- раздел для логина и пароля -->
+        <div class="nav-pro">
+
+          <div class="spec-container" style="display: flex; position: relative;">
+            <div class="toggle-wrapper">
+
+              <svg xmlns="http://www.w3.org/2000/svg" class="dark-mode" (click)="toggleThemeMode()"
+                enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="var(--font)" width="25px" height="25px">
+                <rect fill="none" height="24" width="24" />
+                <path
+                  d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26 c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z" />
+              </svg>
+
+            </div>
+
+            <div class="login-btn-wrapper"
+              style="height: 66px; display: flex; vertical-align: middle; align-items: center; "
+              *ngIf="!(currentUser$ | async)">
+              <app-mat-btn-small class="login-btn" [routerLink]="['/account' ]" text="Войти">
+              </app-mat-btn-small>
+            </div>
+
+            <div class="nav-pro-item nav-item-user">
+              <div id="userinfo" (click)="scrollMenuVisibilitty = !scrollMenuVisibilitty">
+                <div *ngIf="(currentUser$ | async)" (click)="topMenu = !topMenu" style="display: flex;">
+                  <div class="img-wrapper" *ngIf="(currentUser$ | async)">
+                    <img id="userinfo" *ngIf="(currentUser$ | async).photoUrl"
+                      src="{{(currentUser$ | async).photoUrl}}">
+                  </div>
+                  <!-- <i id="userinfo" class="material-icons user-profile" *ngIf="!(currentUser$ | async).photoUrl">
+                            person
+                          </i> -->
+                  <svg id="userinfo" class="user-profile" *ngIf="!(currentUser$ | async).photoUrl" width="26px"
+                    height="26px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="var(--font)"
+                    color="#000000">
+                    <path id="userinfo" class="user-profile" fill-rule="evenodd"
+                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+                    </path>
+                  </svg>
+
+
+                </div>
+              </div>
+              <!-- <div class="spec-container spec-container-scroll-menu"> -->
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+        <app-scroll-menu style="top: 0px; position: absolute; right: 0px; width: 100%;"
+          [ngClass]="{'hidden': scrollMenuVisibilitty}" *ngIf="(currentUser$ | async)">
+        </app-scroll-menu>
+      </div>
+      <!-- раздел для логина и пароля -->
+
+
+    </nav>
+  </div>
+</div>
+
+<div class="layout" *ngIf="isSearching">
+
+</div>

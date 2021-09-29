@@ -1,0 +1,27 @@
+<form [formGroup]="formLogin" (keydown.enter)="fnSubmit()" *ngIf="!this.code">
+  <app-input-text [placeholder]="'mail@provider.com'" formControlName="inputEmailLogin" [label]="'E-mail'"
+    [id]="'inputEmailLogin'" [type]="'email'" [value]="''">
+  </app-input-text>
+
+
+  <app-input-text [placeholder]="'password'" formControlName="inputPassword" [label]="'Пароль'" [id]="'inputPassword'"
+    [value]="''">
+  </app-input-text>
+
+
+  <br>
+  <br>
+
+  <app-login-btn [disabled]="!formLogin.invalid" (click)="fnSubmit()" [form]="formLogin" text="Войти через e-mail">
+  </app-login-btn>
+
+  <app-login-btn-facebook></app-login-btn-facebook>
+  <app-login-btn-google></app-login-btn-google>
+
+
+  <div class="login-info" (click)="displayService.toogle(1)">
+    Нет учетной записи?
+  </div>
+  <div class="login-info">Забыли пароль?</div>
+
+</form>

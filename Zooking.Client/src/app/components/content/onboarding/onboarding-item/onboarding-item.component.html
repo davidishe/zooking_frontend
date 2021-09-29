@@ -1,0 +1,26 @@
+<div class="flex-wrapper">
+  <div class="select-card">
+    <div class="select-card-inner">
+      <div class="select-card-left">
+
+        <p class="select-card-left-title">
+          {{title}}
+        </p>
+        <p class="select-card-left-text">
+          {{text}}
+        </p>
+      </div>
+      <div class="select-card-right">
+        <form [formGroup]="formGroup" ngNativeValidate>
+          <mat-slide-toggle formControlName="enabled" (click)="setNameOfBanner(); onFormSubmit(formGroup.value)">
+            {{isSelected}}
+          </mat-slide-toggle>
+        </form>
+
+
+
+      </div>
+    </div>
+
+  </div>
+</div>

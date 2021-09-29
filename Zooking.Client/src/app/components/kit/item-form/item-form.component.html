@@ -1,0 +1,32 @@
+<div class="page-wrapper">
+  <div class="container">
+    <div class="form-add-wrapper">
+      <form class="form-add" [formGroup]="itemForm" (keydown.enter)="AddItem()">
+        <div style="padding-top: 10px; padding-bottom: 10px; z-index: 300; text-align: center;">
+          <h2>
+            Добавление продукта
+          </h2>
+          <p>
+            Вводи данные и нажми кнопку "Сохранить"
+          </p>
+        </div>
+
+        <app-input-text [placeholder]="'Имя'" formControlName="name" [type]="'text'"
+          [label]="'Напиши имя питомца здесь'" [id]="'name'" value=''>
+        </app-input-text>
+
+        <app-input-text [placeholder]="'Описание'" formControlName="description" [type]="'text'"
+          [label]="'Расскажи историю питомца'" [id]="'description'" value=''>
+        </app-input-text>
+
+        <div class="mat-btn-wrapper" style="min-width: 280px; margin-top: 40px;">
+          <app-mat-btn-small [disabled]="false" [routerLink]="[ '/pets' ]" text="Отменить"></app-mat-btn-small>
+
+          <app-mat-btn-small (click)="AddItem()" [disabled]="itemForm.invalid" text="Сохранить">
+          </app-mat-btn-small>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

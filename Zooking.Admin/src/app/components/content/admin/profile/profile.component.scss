@@ -1,0 +1,169 @@
+.hidden {
+  display: none;
+}
+
+section {
+  margin-top: 40px;
+}
+
+.user-card {
+  display: grid;
+  grid-template-columns: 30% 25% 25% 20%;
+  // background-color: blanchedalmond;
+  width: 100%;
+}
+
+.user-card-info-wrapper {
+  display: flex;
+  // width: 100%;
+  justify-content: space-between;
+  max-width: 500px;
+}
+
+.user-card-header {
+  margin-bottom: 40px;
+}
+
+.status-title {
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.status-icon {
+  width: 12px;
+  height: 12px;
+  background-color: rgb(5, 155, 5);
+  border-radius: 20px;
+  margin-left: 6px;
+}
+
+.status-name {
+  font-size: 13px;
+  border-bottom: 1px dotted #000;
+  cursor: pointer;
+  width: fit-content;
+  margin-bottom: 6px;
+}
+
+.status-wrapper {
+  line-height: 20px;
+  padding: 0px;
+  display: flex;
+  justify-content: flex-start;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.user-card-image {
+  // max-height: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+
+  app-icon {
+    position: absolute;
+    z-index: 1;
+  }
+
+  img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.user-card-content {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  // background-color: chartreuse;
+}
+
+.user-card-content-inner {
+  // background-color: blanchedalmond;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  // padding-left: 40px;
+}
+
+.form-control-buttons {
+  display: flex;
+}
+
+.content-text {
+  width: 100%;
+}
+
+.user-card-left,
+.user-card-section {
+  width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+  padding-right: 50px;
+}
+
+.no-photo {
+  background-color: var(--nav-scroll);
+  width: 100%;
+  max-width: 260px;
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.right {
+  width: 100%;
+}
+
+@media (max-width: 1500px) and (min-width: 1259px) {
+  .user-card {
+    display: grid;
+    grid-template-columns: 33% 33% 34%;
+    // background-color: blanchedalmond;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1360px) and (min-width: 750px) {
+  .user-card {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    // background-color: blanchedalmond;
+    width: 100%;
+  }
+}
+
+@media (max-width: 750px) {
+  .user-card {
+    display: flex;
+    flex-direction: column;
+    // background-color: blanchedalmond;
+    width: 100%;
+  }
+
+  .user-card-left {
+    max-width: 100%;
+    padding-right: 0px;
+  }
+  .user-card-content {
+    justify-content: left;
+    width: initial;
+    margin-bottom: 30px;
+  }
+
+  .user-card-content-inner {
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 450px) {
+  .no-photo {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,50 @@
+<div class="spec-container">
+  <app-title text="Заполни профиль" subtext="Заполни первоначальные данные для работы в приложении"></app-title>
+
+  <app-mat-btn-small text="Завершить регистрацию" (click)="setOnboardedStatus()" [disabled]="false">
+  </app-mat-btn-small>
+
+  <br>
+  <br><br>
+
+
+  <mat-tab-group mat-align-tabs="center" style="width: 100%;">
+    <mat-tab label="Ищу помощь">
+      <br>
+      <app-onboarding-item [title]="'Стать куратором'"
+        [text]="'Если ты нашел животное или нескольких животных и ищешь для него хозяина, выбирай этот пункт, чтобы другие пользователи могли увидеть твой статус. Ты сможешь их поменять в любой момент в настройках.'"
+        [role]="'Curator'" [selectedRoles]="roles">
+      </app-onboarding-item>
+      <app-onboarding-item [title]="'Представитель приюта'"
+        [text]="'Вы приют и хотите получать здесь разнообразную помощь. Тогда выберите этот пункт, чтобы вам стала доступная нужная для приюта функциональность'"
+        [role]="'ShelterOwner'" [selectedRoles]="roles">
+      </app-onboarding-item>
+    </mat-tab>
+
+    <mat-tab label="Хочу помогать">
+      <br>
+      <!-- <app-onboarding-item [title]="'Пользователь приложения'"
+                [text]="'Если ты обычный пользователь, выбирай этот пункт, чтобы другие пользователи могли увидеть твой статус. Ты сможешь их поменять в любой момент в настройках.'"
+                [role]="'User'" [selectedRoles]="roles">
+              </app-onboarding-item> -->
+      <app-onboarding-item [title]="'Предприятие хочет помочь едой'"
+        [text]="'Выбери этот вариант если ты представитель торгово-сервисной компании (кафе, ресторан, общественное питание), которое хочет регулярно помогать едой.'"
+        [role]="'Feeder'" [selectedRoles]="roles">
+      </app-onboarding-item>
+      <app-onboarding-item [title]="'Стать волонтером'"
+        [text]="'Если ты нашел животное или нескольких животных и ищешь для него хозяина, выбирай этот пункт, чтобы другие пользователи могли увидеть твой статус. Ты сможешь их поменять в любой момент в настройках.'"
+        [role]="'Volonter'" [selectedRoles]="roles">
+      </app-onboarding-item>
+    </mat-tab>
+  </mat-tab-group>
+
+
+
+
+
+
+
+
+
+
+</div>

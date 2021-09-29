@@ -1,0 +1,70 @@
+.select-card {
+  width: 100%;
+  box-shadow: var(--shadow);
+  display: flex;
+  border-radius: var(--border-radius);
+  background-color: var(--monochrome);
+  justify-content: flex-start;
+  align-items: center;
+  vertical-align: middle;
+  padding: 30px 40px;
+  margin-bottom: 30px;
+}
+
+.flex-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.select-card-inner {
+  width: 100%;
+  display: flex;
+}
+
+.select-card-left {
+  width: 75%;
+  display: block;
+  justify-content: left;
+  align-items: center;
+}
+
+.select-card-left-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.select-card-right {
+  padding: 10px 10px;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+}
+
+@media (max-width: 630px) {
+  .select-card {
+    padding: 30px 20px;
+    min-height: 0px;
+  }
+
+  .select-card-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .select-card-left {
+    width: 100%;
+    text-align: left;
+  }
+
+  .select-card-right {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

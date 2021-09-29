@@ -1,0 +1,106 @@
+<mat-sidenav-container class="mat-sidenav-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="sideNavService.opened">
+    <div class="nav-toggle nav-toggle-left">
+      <svg *ngIf="sideNavService.isOpened()" (click)="sideNavService.toggle()" xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24" fill="var(--font)" width="36px" height="36px">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path d="M3 18h13v-2H3v2zm0-5h10v-2H3v2zm0-7v2h13V6H3zm18 9.59L17.42 12 21 8.41 19.59 7l-5 5 5 5L21 15.59z" />
+      </svg>
+    </div>
+
+    <app-bread-crumb></app-bread-crumb>
+    <div class="logo-wrapper" [routerLink]="['/']">
+      <div class="smile">
+        🐶
+      </div>
+      <div class="logo">Volo</div>
+    </div>
+
+    <div class="menu">
+      <div class="menu-section">
+        <h3>МЕНЮ</h3>
+        <ul>
+
+          <li class="menu-items" routerLinkActive="active-menu" [routerLink]="[ '/help']"
+            (click)="sideNavService.openNavSide()">
+            <i class="material-icons">favorite</i>
+            <a>Помощь</a>
+          </li>
+
+          <li class="menu-items" [routerLink]="[ '/volonters']" (click)="sideNavService.openNavSide()"
+            routerLinkActive="active-menu">
+            <i class="material-icons">whatshot</i>
+            <a>Волонтеры</a>
+          </li>
+
+          <li class="menu-items" [routerLink]="[ '/pets']" (click)="sideNavService.openNavSide()"
+            routerLinkActive="active-menu">
+            <i class="material-icons">pets</i>
+            <a>Питомцы</a>
+          </li>
+
+          <li class="menu-items" [routerLink]="[ '/shelters']" (click)="sideNavService.openNavSide()"
+            routerLinkActive="active-menu">
+            <i class="material-icons">villa</i>
+            <a>Приюты</a>
+          </li>
+
+
+          <li class="menu-items" routerLinkActive="active-menu" style="color: gray; cursor: default;"
+            matTooltip="Раздел в разработке" [matTooltipPosition]="'after'">
+            <i class="material-icons">people_alt</i>
+            <a>Кураторы</a>
+          </li>
+
+          <li class="menu-items" outerLinkActive="active-menu" style="color: gray; cursor: default;"
+            matTooltip="Раздел в разработке" [matTooltipPosition]="'after'">
+            <i class="material-icons">room</i>
+            <a>Передержка</a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="menu-section" *ngIf="accountService.checkAdminRights()">
+        <h3 style="margin-top: 30px;">АДМИНИСТРАТОР</h3>
+        <ul>
+          <li class="menu-items" routerLinkActive="active-menu" [routerLink]="[ '/admin/users']">
+            <i class="material-icons">admin_panel_settings</i>
+            <a>Пользователи</a>
+        </ul>
+      </div>
+
+
+      <div class="menu-section" style="padding-bottom: 40px;">
+        <h3 style="margin-top: 30px;">КОНТАКТЫ</h3>
+        <ul>
+          <li class="menu-items" routerLinkActive="active-menu">
+            <i class="material-icons">recent_actors</i>
+            <a>О проекте</a>
+        </ul>
+
+        <ul>
+          <li class="menu-btn-feedback" style="margin-top: 30px;">
+            <app-mat-button text="Обратная связь"></app-mat-button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <app-nav-menu></app-nav-menu>
+
+    <div class="_container-wrapper">
+      <div class="_container">
+        <router-outlet>
+        </router-outlet>
+      </div>
+    </div>
+
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

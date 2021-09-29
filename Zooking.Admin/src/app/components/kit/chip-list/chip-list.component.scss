@@ -1,0 +1,50 @@
+.roles {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.mat-chip-list-wrapper {
+  min-width: 400px !important;
+}
+
+mat-chip-list {
+  // background-color: chartreuse;
+  position: relative;
+  justify-content: space-between;
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100% !important;
+
+  mat-chip {
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    min-width: 100px;
+    max-width: 130px;
+  }
+
+  // mat-chip:hover {
+  //   background-color: var(--warn) !important;
+  //   color: bisque;
+
+  //   mat-icon {
+  //     justify-self: right;
+  //     align-self: flex-end;
+  //     right: 0px;
+  //     color: bisque;
+  //   }
+  // }
+
+  mat-chip.roles {
+    background-color: darkgrey;
+  }
+
+  mat-chip.mat-standard-chip::after {
+    background: none;
+  }
+}

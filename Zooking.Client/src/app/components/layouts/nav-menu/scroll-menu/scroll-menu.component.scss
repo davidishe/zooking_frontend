@@ -1,0 +1,106 @@
+.nav-item-user-spec-menu {
+  width: 100vw;
+  // height: 300px;
+  margin-top: 50px;
+  display: flex;
+  top: 0px;
+  left: -13px;
+  position: absolute;
+  justify-content: flex-end;
+}
+
+.city-change {
+  position: sticky;
+  z-index: 115;
+  background-color: var(--nav-scroll);
+  height: auto;
+  max-height: 600px;
+  width: 260px;
+  display: block;
+  margin-top: 5px;
+  padding: 20px 20px;
+  border-radius: 10px;
+  padding-top: 40px;
+  right: 61px;
+  transition: all 2s ease-in-out;
+
+  .scroll-menu-item-wrapper {
+    display: grid;
+
+    .scroll-menu-item {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      list-style: none;
+      cursor: pointer;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      display: inline-flex;
+      display: flex;
+      vertical-align: middle;
+      align-items: center;
+
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+      text-decoration: none;
+      font-weight: 400;
+      padding-bottom: 15px;
+      padding-top: 15px;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 16px;
+      color: var(--font);
+
+      svg {
+        margin-right: 15px;
+        fill: var(--font);
+      }
+      &:hover {
+        background-color: var(--nav-scroll-hover);
+      }
+    }
+  }
+}
+
+.city-change:before {
+  content: "";
+  border: 10px solid transparent;
+  border-bottom: 10px solid var(--nav-scroll);
+  border-right: 10px solid var(--nav-scroll);
+  position: absolute;
+  bottom: 100%;
+  z-index: 22;
+  right: 0px;
+  top: -8px;
+}
+
+.city-change-wrapp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  height: auto;
+  min-height: 100%;
+  padding: 20px 30px;
+  display: flex;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  scrollbar-width: none;
+  border-radius: 10px;
+}
+
+.user-settings {
+  margin-bottom: 30px;
+  padding-left: 10px;
+
+  p {
+    font-size: 14px;
+    margin: 0px;
+  }
+}
+
+@media (max-width: 901px) {
+  .city-change {
+    right: 27px;
+  }
+}

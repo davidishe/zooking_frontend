@@ -1,0 +1,41 @@
+<div *ngIf="item && !isEdited" class="spec-container">
+  <div class="spec-inner">
+    <div class="btn-wrapper" style="margin-bottom: 1.5rem;">
+      <app-mat-btn-small style="margin-right: 10px;" *ngIf="type === 'pet'" [routerLink]="[ '/pets' ]" text="Назад">
+      </app-mat-btn-small>
+      <app-mat-btn-small style="margin-right: 10px;" *ngIf="type === 'shelter'" [routerLink]="[ '/shelters' ]"
+        text="Назад">
+      </app-mat-btn-small>
+
+      <app-mat-btn-small style="margin-right: 10px;" text="Редактировать" (click)="editMode(true)">
+      </app-mat-btn-small>
+      <app-mat-btn-small style="margin-top: 20px;" text="Удалить" *ngIf="accountService.checkAdminRights()"
+        (click)="delete(item.id)">
+      </app-mat-btn-small>
+
+    </div>
+    <div class="item-content-grid">
+      <div class="item-content">
+        <app-mat-card-hero [type]="type" [item]="item"></app-mat-card-hero>
+      </div>
+      <div class="item-content">
+        <div class="item-content-inner">
+          Следует отметить, что постоянное информационно-пропогандистское обеспечение нашей деятельности способствует
+          подготовке и реализации существующий финансовых и административных условий. Не следует, однако, забывать, что
+          высокотехнологичная концепция общественной системы способствует подготовке и реализации поставленных обществом
+          и
+          правительством задач.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div *ngIf="item && isEdited" class="spec-container">
+  <div class="spec-inner">
+    <app-item-form-edit (changedItem)="getEmitedOutputItem($event)" [item]="item" [type]="type" [itemForm]="itemForm">
+    </app-item-form-edit>
+  </div>
+</div>

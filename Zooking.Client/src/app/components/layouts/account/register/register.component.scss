@@ -1,0 +1,76 @@
+form {
+  width: 100%;
+  position: relative;
+  font-size: 15px;
+  min-height: 633px;
+
+  .label {
+    color: black;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    .mat-form-field-wrapper {
+      width: 100%;
+    }
+
+    .mat-input-login {
+      top: -3px;
+      position: relative;
+    }
+  }
+
+  .mat-hint {
+    .validator {
+      color: var(--main-theme-color-error);
+      right: 12px;
+      position: relative;
+    }
+  }
+}
+
+.login-info {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  color: #202020;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.login-info:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+mat-icon {
+  position: relative;
+  margin-right: 5px;
+  font-size: 20px;
+  bottom: -0.8px !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-radius: 0px !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-radius: 0px !important;
+}
+
+.mat-btn-login-email {
+  // color: black !important;
+  border: solid black 2px !important;
+}
+
+.mat-btn-login-email:hover {
+  border: solid black 2px;
+}
+
+button:disabled {
+  background-color: white !important;
+  border-color: lightgrey !important;
+}
