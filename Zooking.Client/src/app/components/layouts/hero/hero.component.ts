@@ -1,7 +1,4 @@
 import { Component, OnInit, ChangeDetectorRef, AfterViewInit } from '@angular/core';
-import { IAnimal } from 'src/app/shared/models/animals/animal';
-import { ShopService } from 'src/app/services/products/shop.service';
-import { ShopParams } from 'src/app/shared/models/shopParams';
 import { BusyService } from 'src/app/services/infrastructure/busy.service';
 
 @Component({

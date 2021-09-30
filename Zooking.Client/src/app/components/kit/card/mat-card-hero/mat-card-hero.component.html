@@ -3,14 +3,14 @@
     <div class="card-body">
       <h3 class="card-title">{{item.name}}</h3>
       <div class="card-text">{{item.description | slice:0:60}}...</div>
-      <div class="card-text-user" *ngIf="item.userName"> <b>Запись добавил пользователь </b>{{item.userName}}</div>
+      <div class="card-text-user" *ngIf="item.name"> <b>Запись добавил пользователь </b>{{item.userName}}</div>
       <div class="img-wrapper">
-        <img *ngIf="item.pictureUrl" src="{{item.pictureUrl}}" alt="{{item.name}}">
-        <app-icon class="icon" *ngIf="!item.pictureUrl && detailedMode" [icon]="'add_photo_alternate'"
+        <img *ngIf="item.mainPhoto" src="{{item.mainPhoto}}.png" alt="{{item.name}}">
+        <app-icon class="icon" *ngIf="!item.mainPhoto && detailedMode" [icon]="'add_photo_alternate'"
           (click)="file.click()"> </app-icon>
-        <app-icon class="icon" *ngIf="!item.pictureUrl && !detailedMode" [icon]="'no_photography'"> </app-icon>
+        <app-icon class="icon" *ngIf="!item.mainPhoto && !detailedMode" [icon]="'no_photography'"> </app-icon>
 
-        <app-icon class="icon icon-edit" *ngIf="item.pictureUrl && detailedMode" [icon]="'edit'" (click)="file.click()">
+        <app-icon class="icon icon-edit" *ngIf="item.mainPhoto && detailedMode" [icon]="'edit'" (click)="file.click()">
         </app-icon>
 
 

@@ -7,8 +7,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AccountService } from '../account.service';
 import { DisplayService } from 'src/app/services/display.service';
 import { Subscription } from 'rxjs';
-import { ShopService } from 'src/app/services/products/shop.service';
-import { BusyService } from 'src/app/services/infrastructure/busy.service';
 
 @Component({
   selector: 'app-login',

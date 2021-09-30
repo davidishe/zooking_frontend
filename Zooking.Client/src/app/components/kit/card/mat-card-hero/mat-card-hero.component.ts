@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { IAnimal } from 'src/app/shared/models/animals/animal';
+import { IAssistant } from 'src/app/shared/models/animals/animal';
 import { IShelter } from 'src/app/shared/models/shelters/shelter';
 import { PhotoService } from '../photo.service';
 
 
-type IItem = IAnimal | IShelter;
+type IItem = IAssistant;
 
 @Component({
   selector: 'app-mat-card-hero',
@@ -33,7 +33,7 @@ export class MatCardHeroComponent  {
   onImageUpload(files, item) {
 
     if (files.length === 0) { return; }
-    // this.products.filter(z => z.id === product.id)[0].pictureUrl = '';
+    // this.products.filter(z => z.id === product.id)[0].mainPhoto = '';
     const fileToUpload = files[0] as File;
     this.formData.append('file', fileToUpload, fileToUpload.name);
     this.progress = true;
@@ -55,7 +55,7 @@ export class MatCardHeroComponent  {
 
   addPhotoToPet(files, item): void {
     this.photoService.addPhotoToPet(item, this.formData).subscribe((res: IItem) => {
-      this.item.pictureUrl = res.pictureUrl;
+      this.item.mainPhoto = res.mainPhoto;
       this.progress = false;
       this.formData.delete('file');
       files = [];
@@ -64,7 +64,7 @@ export class MatCardHeroComponent  {
 
   addPhotoToShelter(files, item): void {
     this.photoService.addPhotoToShelter(item, this.formData).subscribe((res: IItem) => {
-      this.item.pictureUrl = res.pictureUrl;
+      this.item.mainPhoto = res.mainPhoto;
       this.progress = false;
       this.formData.delete('file');
       files = [];

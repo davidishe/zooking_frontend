@@ -1,17 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input, Injectable } from '@angular/core';
-import { IAnimal } from 'src/app/shared/models/animals/animal';
-import { Subscription } from 'rxjs';
-import { IPagination } from 'src/app/shared/models/pagination';
+import { Component, Input } from '@angular/core';
 import { IAnimalType } from 'src/app/shared/models/type';
 import { IRegion } from 'src/app/shared/models/region';
 import { ShopParams } from 'src/app/shared/models/shopParams';
-import { MatPaginator } from '@angular/material/paginator';
-import { DecimalPipe } from '@angular/common';
-import { ShopService } from 'src/app/services/products/shop.service';
 import { SideNavService } from 'src/app/services/side-nav.service';
-import { IShelter } from 'src/app/shared/models/shelters/shelter';
+import { IAssistant } from 'src/app/shared/models/animals/animal';
 
-type IITem = IAnimal | IShelter;
+type IITem = IAssistant;
 
 @Component({
   selector: 'app-items-layout',
@@ -32,7 +26,6 @@ export class ItemsLayoutComponent {
 
 
   constructor(
-    private shopService: ShopService,
     public sideNavService: SideNavService
 
   ) {

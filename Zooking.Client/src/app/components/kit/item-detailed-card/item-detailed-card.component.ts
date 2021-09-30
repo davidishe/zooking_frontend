@@ -1,16 +1,13 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IAnimal } from 'src/app/shared/models/animals/animal';
-import { IShelter } from 'src/app/shared/models/shelters/shelter';
+import { IAssistant } from 'src/app/shared/models/animals/animal';
 import { BreadcrumbService } from 'xng-breadcrumb';
-import { PetService } from '../../content/main/items/pet.service';
-import { PetsService } from '../../content/main/pets/pets.service';
-import { SheltersService } from '../../content/main/shelters/shelters.service';
+import { AssistantsService } from '../../content/main/items/assistants.service';
 import { AccountService } from '../../layouts/account/account.service';
 import { PhotoService } from '../card/photo.service';
 
-type IItem = IAnimal | IShelter;
+type IItem = IAssistant;
 
 @Component({
   selector: 'app-item-detailed-card',
@@ -29,8 +26,7 @@ export class ItemDetailedCardComponent implements OnInit {
   
 
   constructor(
-    private petService: PetService,
-    private sheltersService: SheltersService,
+    private assistantService: AssistantsService,
     private activatedRoute: ActivatedRoute,
     private photoService: PhotoService,
     private breadcrumbService: BreadcrumbService,
@@ -51,7 +47,7 @@ export class ItemDetailedCardComponent implements OnInit {
     this.type = this.activatedRoute.snapshot.paramMap.get('type');
 
     setTimeout(() => {
-      this.loadItemWithOptions();
+      this.loadShelterByGuId();
       console.log('halo worild');
       
     }, 100);
@@ -60,20 +56,9 @@ export class ItemDetailedCardComponent implements OnInit {
 
   patchValues() {
     this.itemForm.controls.name.patchValue(this.item.name);
-    this.itemForm.controls.description.patchValue(this.item.description);
+    this.itemForm.controls.description.patchValue(this.item.mainPhoto);
   }
 
-
-  loadItemWithOptions(): void {
-
-    if (this.type === 'shelter') {
-      this.loadShelterByGuId();
-    }
-
-    if (this.type === 'pet') {
-      this.loadPetByGuId();
-    }
-  }
 
 
   onFormInit() {
@@ -83,21 +68,9 @@ export class ItemDetailedCardComponent implements OnInit {
     });
   }
 
-  loadPetByGuId() {
-      this.petService.getItemById(this.itemId).subscribe((response: IItem) => {
-        if (response) {
-          this.item = response;
-          this.breadcrumbService.set('@productDetails', this.item.name);
-          this.patchValues();
-        }
-    }, err => {
-      console.log(err);
-    });
-  }
-
 
   loadShelterByGuId() {
-      this.sheltersService.getItemById(this.itemId).subscribe((response:  IItem) => {
+      this.assistantService.getItemById(this.itemId).subscribe((response:  IItem) => {
       this.item = response;
       console.log(this.item);
       this.breadcrumbService.set('@productDetails', this.item.name);
@@ -125,23 +98,11 @@ export class ItemDetailedCardComponent implements OnInit {
 
   delete(id: number): void {
 
-    if (this.type === 'pet') {
-      this.petService.deleteItem(id).subscribe((res: any) => {
-        if (res) {
-          this.router.navigateByUrl('/pets');
-        }
-      })
-    }
-
-    if (this.type === 'shelter') {
-      this.sheltersService.deleteItem(id).subscribe((res: any) => {
+      this.assistantService.deleteItem(id).subscribe((res: any) => {
         if (res) {
           this.router.navigateByUrl('/shelters');
         }
       })
-    }
-
-
 
   }
 

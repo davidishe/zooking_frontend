@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams, HttpEventType } from '@angular/common/http';
-import { IAnimal, IAnimalToCreate } from 'src/app/shared/models/animals/animal';
 import { PaginatedResult } from 'src/app/shared/models/pagination';
 import { IUser } from 'src/app/shared/models/user/user';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { IAssistant } from 'src/app/shared/models/animals/animal';
+
+
+type Type = IAssistant;
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +28,7 @@ export class AdminService {
     })
   };
 
-  createProduct(product: IAnimalToCreate) {
+  createProduct(product: Type) {
     return this.http.post(this.baseUrl + 'products/create/', product);
   }
 
@@ -32,11 +36,11 @@ export class AdminService {
     return this.http.delete(this.baseUrl + 'products/delete/?productId=' + productId);
   }
 
-  addProductPhoto(product: IAnimal, formData: any) {
+  addProductPhoto(product: Type, formData: any) {
     return this.http.post(this.baseUrl + 'products/photo?productId=' + product.id, formData);
   }
 
-  updateProduct(product: IAnimalToCreate) {
+  updateProduct(product: Type) {
     return this.http.put(this.baseUrl + 'products/update', product);
   }
 

@@ -11,9 +11,9 @@
     <app-bread-crumb></app-bread-crumb>
     <div class="logo-wrapper" [routerLink]="['/']">
       <div class="smile">
-        🐶
+        🟣
       </div>
-      <div class="logo">Volo</div>
+      <div class="logo">Zooking</div>
     </div>
 
     <div class="menu">
@@ -21,11 +21,12 @@
         <h3>МЕНЮ</h3>
         <ul>
 
-          <li class="menu-items" routerLinkActive="active-menu" [routerLink]="[ '/help']"
-            (click)="sideNavService.openNavSide()">
-            <i class="material-icons">favorite</i>
-            <a>Помощь</a>
+          <li class="menu-items" [routerLink]="[ '/assistants']" (click)="sideNavService.openNavSide()"
+            routerLinkActive="active-menu">
+            <i class="material-icons">pets</i>
+            <a>Питомцы</a>
           </li>
+
 
           <li class="menu-items" [routerLink]="[ '/volonters']" (click)="sideNavService.openNavSide()"
             routerLinkActive="active-menu">
@@ -33,17 +34,13 @@
             <a>Волонтеры</a>
           </li>
 
-          <li class="menu-items" [routerLink]="[ '/pets']" (click)="sideNavService.openNavSide()"
-            routerLinkActive="active-menu">
-            <i class="material-icons">pets</i>
-            <a>Питомцы</a>
+
+          <li class="menu-items" routerLinkActive="active-menu" [routerLink]="[ '/help']"
+            (click)="sideNavService.openNavSide()">
+            <i class="material-icons">favorite</i>
+            <a>Помощь</a>
           </li>
 
-          <li class="menu-items" [routerLink]="[ '/shelters']" (click)="sideNavService.openNavSide()"
-            routerLinkActive="active-menu">
-            <i class="material-icons">villa</i>
-            <a>Приюты</a>
-          </li>
 
 
           <li class="menu-items" routerLinkActive="active-menu" style="color: gray; cursor: default;"

@@ -1,9 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { IAnimalToCreate, IAnimal } from 'src/app/shared/models/animals/animal';
-import { IUser } from 'src/app/shared/models/user/user';
 import { IRoles } from 'src/app/shared/models/user/userRoles';
 import { environment } from 'src/environments/environment';
 

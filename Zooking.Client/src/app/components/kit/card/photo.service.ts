@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IAnimal } from 'src/app/shared/models/animals/animal';
+import { IAssistant } from 'src/app/shared/models/animals/animal';
 import { IShelter } from 'src/app/shared/models/shelters/shelter';
 import { environment } from 'src/environments/environment';
 
 
 
-type IItem = IAnimal | IShelter;
+type IItem = IAssistant;
 const apiRoute = 'photo/';
 
 @Injectable({

@@ -6,7 +6,7 @@ import { MaterialModule } from 'src/app/shared/material.module';
 import { CardModule } from 'src/app/components/kit/card/card.module';
 import { MatBtnSmallModule } from 'src/app/components/kit/buttons/mat-btn-small/mat-btn-small.module';
 import { RouterModule } from '@angular/router';
-import { ItemFormModule } from 'src/app/components/kit/item-form/item-form.module';
+import { ItemFormModule } from 'src/app/components/content/main/assistants/item-form/item-form.module';
 import { ItemDetailedCardModule } from 'src/app/components/kit/item-detailed-card/item-detailed-card.module';
 
 const UserModules = [
