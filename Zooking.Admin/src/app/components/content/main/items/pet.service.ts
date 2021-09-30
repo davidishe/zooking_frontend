@@ -9,6 +9,7 @@ const apiRoute = 'animals/';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PetService {
 
   baseUrl = environment.apiUrl;
