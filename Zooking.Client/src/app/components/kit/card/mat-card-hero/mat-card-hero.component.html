@@ -3,7 +3,9 @@
     <div class="card-body">
       <h3 class="card-title">{{item.name}}</h3>
       <div class="card-text">{{item.description | slice:0:60}}...</div>
-      <div class="card-text-user" *ngIf="item.name"> <b>Запись добавил пользователь </b>{{item.userName}}</div>
+      <div class="card-text-user" *ngIf="item.name"> <b>Рейтинг &nbsp; &nbsp; </b>
+        ⭐️⭐️⭐️
+      </div>
       <div class="img-wrapper">
         <img *ngIf="item.mainPhoto" src="{{item.mainPhoto}}.png" alt="{{item.name}}">
         <app-icon class="icon" *ngIf="!item.mainPhoto && detailedMode" [icon]="'add_photo_alternate'"

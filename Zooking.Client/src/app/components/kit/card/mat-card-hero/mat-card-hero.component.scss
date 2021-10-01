@@ -46,6 +46,10 @@
   justify-content: center;
 }
 
+.card-title {
+  min-height: 50px;
+}
+
 .card-text,
 .card-text-user {
   max-width: 100%;
@@ -59,7 +63,8 @@
 .img-wrapper {
   max-width: 100%;
   position: relative;
-  height: 270px;
+  min-height: 240px;
+  max-height: 310px;
   justify-content: center;
   vertical-align: middle;
   align-items: center;
@@ -67,7 +72,7 @@
   display: flexbox;
   overflow: hidden;
   border-radius: 10px;
-  max-width: 600px;
+  // max-width: 600px;
 
   img {
     position: relative;

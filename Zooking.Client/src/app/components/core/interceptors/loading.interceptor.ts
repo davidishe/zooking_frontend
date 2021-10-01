@@ -34,7 +34,8 @@ export class LoadingInterceptor implements HttpInterceptor {
 
 
 
-    if (!req.url.includes('checkmail') && !req.url.includes('api/address/suggest') && !req.url.includes('api/account/auth/facebook') && !req.url.includes('api/account/current')) {
+
+    if (!req.url.includes('checkmail') && !req.url.includes('api/address/suggest') && !req.url.includes('api/account/auth/facebook')) {
       return next.handle(req).pipe(
         tap((event) => {
           if (event.type === HttpEventType.Response) {
@@ -43,16 +44,15 @@ export class LoadingInterceptor implements HttpInterceptor {
             }
           }
         }),
-        catchError(err => {
-          if (err instanceof HttpErrorResponse) {
-            this.busyService.setLoadingStatus(false);
-            console.log(err);
-            this.openSnackBar('Произошла ошибка');
+        catchError((err ) => {
 
-          } else {
+          if (err.status !== 200 && err.status !== 401) {
             this.busyService.setLoadingStatus(false);
+            console.log(err.status);
+            this.openSnackBar('Произошла ошибка');
           }
-          return of(err);
+            return of(err);
+
         })
       );
     } else {

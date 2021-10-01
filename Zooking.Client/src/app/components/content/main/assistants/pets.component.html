@@ -1,8 +1,8 @@
-<div class="spec-container">
+<div *ngIf="pets" class="spec-container">
 
-  <app-title text="Питомцы" subtext="Смотри и добавляй питомцев в каталог"></app-title>
+  <app-title text="Найти няню для питомца" subtext="Выбери вирант из списка"></app-title>
 
-  <div class="container" *ngIf="pets">
+  <div class="container">
     <div class="title-wrapper">
       <app-page-header></app-page-header>
       <p>
