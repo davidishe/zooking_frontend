@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IAssistant } from 'src/app/shared/models/animals/animal';
+import { IAssistant } from 'src/app/shared/models/animals/assistant';
 import { environment } from 'src/environments/environment';
 
 

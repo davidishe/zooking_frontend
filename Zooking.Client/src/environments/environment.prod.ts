@@ -3,5 +3,5 @@ export const environment = {
   apiUrl: 'api/',
   authUrl: 'api/account/',
   siteUrl: '',
-  redirectUrl: 'https://haven.karabaradaram.ru/account',
+  redirectUrl: 'https://zooking.karabaradaram.ru/account',
 };

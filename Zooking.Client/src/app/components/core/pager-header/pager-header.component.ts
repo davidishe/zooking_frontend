@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IAnimal } from 'src/app/shared/models/animals/animal';
+import { IAssistant } from 'src/app/shared/models/animals/assistant';
 
 @Component({
   selector: 'app-pager-header',
@@ -7,7 +7,7 @@ import { IAnimal } from 'src/app/shared/models/animals/animal';
   styleUrls: ['./pager-header.component.scss']
 })
 export class PagerHeaderComponent implements OnInit {
-  @Input() products: IAnimal[];
+  @Input() products: IAssistant[];
   @Input() totalCount: number;
 
   constructor() { }

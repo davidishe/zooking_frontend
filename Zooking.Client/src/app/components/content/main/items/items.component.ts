@@ -9,7 +9,7 @@ import { RegionsService } from 'src/app/services/products/regions.service';
 import { TypesService } from 'src/app/services/products/types.service';
 import { SideNavService } from 'src/app/services/side-nav.service';
 import { IRegion } from 'src/app/shared/models/region';
-import { IAssistant } from 'src/app/shared/models/animals/animal';
+import { IAssistant } from 'src/app/shared/models/animals/assistant';
 import { AssistantsService } from './assistants.service';
 
 @Component({

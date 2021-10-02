@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { IAnimal } from '../shared/models/animals/animal';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 

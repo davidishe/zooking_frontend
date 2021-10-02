@@ -3,7 +3,7 @@ import { IAnimalType } from 'src/app/shared/models/type';
 import { IRegion } from 'src/app/shared/models/region';
 import { ShopParams } from 'src/app/shared/models/shopParams';
 import { SideNavService } from 'src/app/services/side-nav.service';
-import { IAssistant } from 'src/app/shared/models/animals/animal';
+import { IAssistant } from 'src/app/shared/models/animals/assistant';
 
 type IITem = IAssistant;
 

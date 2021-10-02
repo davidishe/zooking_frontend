@@ -5,7 +5,7 @@ import { PaginatedResult } from 'src/app/shared/models/pagination';
 import { IUser } from 'src/app/shared/models/user/user';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IAssistant } from 'src/app/shared/models/animals/animal';
+import { IAssistant } from 'src/app/shared/models/animals/assistant';
 
 
 type Type = IAssistant;

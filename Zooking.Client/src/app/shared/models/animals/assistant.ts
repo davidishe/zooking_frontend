@@ -4,6 +4,13 @@ export interface IAssistant {
   mainPhoto: string;
   isEnabled?: boolean;
   description?: string;
+  rating?: number;
+
+  street?: string;
+  city?: string;
+  house?: string;
+  zipCode?: string;
+
 }
 
 // export interface IAnimalToCreate {

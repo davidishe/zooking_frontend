@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import { RegionsService } from 'src/app/services/products/regions.service';
 import { TypesService } from 'src/app/services/products/types.service';
-import { IAssistant } from 'src/app/shared/models/animals/animal';
+import { IAssistant } from 'src/app/shared/models/animals/assistant';
 import { IPagination } from 'src/app/shared/models/pagination';
 import { IRegion } from 'src/app/shared/models/region';
 import { ShopParams } from 'src/app/shared/models/shopParams';

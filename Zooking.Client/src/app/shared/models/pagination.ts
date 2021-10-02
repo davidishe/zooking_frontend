@@ -1,5 +1,4 @@
-import { IAssistant } from './animals/animal';
-import { IShelter } from './shelters/shelter';
+import { IAssistant } from './animals/assistant';
 
 export interface IPagination {
   pageIndex: number;

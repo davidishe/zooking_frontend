@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IAssistant } from 'src/app/shared/models/animals/animal';
+import { IAssistant } from 'src/app/shared/models/animals/assistant';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { AssistantsService } from '../../content/main/items/assistants.service';
 import { AccountService } from '../../layouts/account/account.service';

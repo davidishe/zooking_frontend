@@ -1,13 +1,28 @@
-<div class="card-wrapper">
+<div class="card-wrapper" *ngIf="item">
   <div class="mat-card-main">
     <div class="card-body">
       <h3 class="card-title">{{item.name}}</h3>
-      <div class="card-text">{{item.description | slice:0:60}}...</div>
-      <div class="card-text-user" *ngIf="item.name"> <b>Рейтинг &nbsp; &nbsp; </b>
-        ⭐️⭐️⭐️
+      <div class="card-text">{{item.description | slice:0:60}} Повседневная практика показывает, что дальнейшее развитие
+        различных форм деятельности требует анализа модели развития.</div>
+      <div class="card-text-user">
+        <!-- <i class="material-icons" style="color: orange;" *ngFor="let item of [1, 2, 3, 4]">
+          star
+        </i> -->
+        <i class="material-icons" style="color: orange;" *ngFor="let div of getArray(item.rating); let i=index">
+          star
+        </i>
       </div>
+      <div class="card-text-user">
+        <i class="material-icons" style="color: blue;">
+          location_on
+        </i>
+
+        <span> &nbsp; {{item.zipCode}}, {{item.city}}, {{item.street}}, {{item.house}}</span>
+
+      </div>
+
       <div class="img-wrapper">
-        <img *ngIf="item.mainPhoto" src="{{item.mainPhoto}}.png" alt="{{item.name}}">
+        <img *ngIf="item.mainPhoto" src="{{item.mainPhoto}}" alt="{{item.name}}">
         <app-icon class="icon" *ngIf="!item.mainPhoto && detailedMode" [icon]="'add_photo_alternate'"
           (click)="file.click()"> </app-icon>
         <app-icon class="icon" *ngIf="!item.mainPhoto && !detailedMode" [icon]="'no_photography'"> </app-icon>

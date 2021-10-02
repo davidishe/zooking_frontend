@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { IAssistant } from 'src/app/shared/models/animals/animal';
+import { IAssistant } from 'src/app/shared/models/animals/assistant';
 import { IShelter } from 'src/app/shared/models/shelters/shelter';
 import { PhotoService } from '../photo.service';
 
 
-type IItem = IAssistant;
+type IType = IAssistant;
 
 @Component({
   selector: 'app-mat-card-hero',
@@ -16,10 +16,10 @@ type IItem = IAssistant;
 export class MatCardHeroComponent  {
   @Input() content?: string;
   @Input() isHidden?: boolean;
-  @Input() item?: IItem;
+  @Input() item?: IType;
   @Input() detailedMode: boolean;
   @Input() link?: string;
-  @Input() type?: string;
+
 
   progress: boolean;
   formData = new FormData();
@@ -37,24 +37,12 @@ export class MatCardHeroComponent  {
     const fileToUpload = files[0] as File;
     this.formData.append('file', fileToUpload, fileToUpload.name);
     this.progress = true;
-
-    console.log(this.type);
-    
-
-    if (this.type === 'pet') {
-      this.addPhotoToPet(files, item);
-    }
-
-    if (this.type === 'shelter') {
-      console.log(1231231231231231231);
-      
-      this.addPhotoToShelter(files, item);
-    }
+    this.addPhotoToShelter(files, item);
 
   }
 
   addPhotoToPet(files, item): void {
-    this.photoService.addPhotoToPet(item, this.formData).subscribe((res: IItem) => {
+    this.photoService.addPhotoToPet(item, this.formData).subscribe((res: IType) => {
       this.item.mainPhoto = res.mainPhoto;
       this.progress = false;
       this.formData.delete('file');
@@ -63,12 +51,17 @@ export class MatCardHeroComponent  {
   }
 
   addPhotoToShelter(files, item): void {
-    this.photoService.addPhotoToShelter(item, this.formData).subscribe((res: IItem) => {
+    this.photoService.addPhotoToShelter(item, this.formData).subscribe((res: IType) => {
       this.item.mainPhoto = res.mainPhoto;
       this.progress = false;
       this.formData.delete('file');
       files = [];
     });
+  }
+
+  getArray(value: number) {
+    const arrayOfDigits = Array.from(String(value), Number);
+    return arrayOfDigits;
   }
 
 }

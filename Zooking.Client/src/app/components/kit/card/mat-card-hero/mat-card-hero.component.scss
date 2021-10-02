@@ -2,6 +2,7 @@
   border: 0px;
   box-shadow: var(--shadow);
   background-color: var(--background-card);
+  box-shadow: inset 20px 5px 15px white;
   max-width: 100%;
   min-width: 300px;
   width: 100%;
@@ -16,7 +17,14 @@
   animation-name: example;
   animation-duration: 0.5s;
   position: relative;
+  z-index: 2;
+  transition: all ease-in-out 0.15s;
   // max-width: clamp(390px, 2vw, 420px);
+}
+
+.card-wrapper:hover {
+  box-shadow: var(--shadow-hover);
+  z-index: 1;
 }
 
 @keyframes example {
@@ -26,10 +34,6 @@
   to {
     top: 0px;
   }
-}
-
-.card-wrapper:hover {
-  // box-shadow: var(--shadow-hover);
 }
 
 .mat-card-main {
@@ -58,6 +62,14 @@
   padding: 0px;
   margin-bottom: 5px;
   word-wrap: break-word;
+  display: flex;
+  justify-content: flex-start;
+  vertical-align: middle;
+  align-items: center;
+
+  i {
+    font-size: var(--medium);
+  }
 }
 
 .img-wrapper {
@@ -72,6 +84,7 @@
   display: flexbox;
   overflow: hidden;
   border-radius: 10px;
+  margin-top: 20px;
   // max-width: 600px;
 
   img {
