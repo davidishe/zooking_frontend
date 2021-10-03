@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AssistantService } from 'src/app/components/content/main/assistants/assistant.service';
 import { IAssistant } from 'src/app/shared/models/animals/assistant';
 import { BreadcrumbService } from 'xng-breadcrumb';
-import { AssistantsService } from '../../content/main/items/assistants.service';
-import { AccountService } from '../../layouts/account/account.service';
-import { PhotoService } from '../card/photo.service';
+import { AccountService } from '../../../../layouts/account/account.service';
+import { PhotoService } from '../../photo.service';
 
 type IItem = IAssistant;
 
@@ -26,7 +26,7 @@ export class ItemDetailedCardComponent implements OnInit {
   
 
   constructor(
-    private assistantService: AssistantsService,
+    private assistantService: AssistantService,
     private activatedRoute: ActivatedRoute,
     private photoService: PhotoService,
     private breadcrumbService: BreadcrumbService,
@@ -70,7 +70,7 @@ export class ItemDetailedCardComponent implements OnInit {
 
 
   loadShelterByGuId() {
-      this.assistantService.getItemById(this.itemId).subscribe((response:  IItem) => {
+      this.assistantService.GetById(this.itemId).subscribe((response:  IItem) => {
       this.item = response;
       console.log(this.item);
       this.breadcrumbService.set('@productDetails', this.item.name);
@@ -98,7 +98,7 @@ export class ItemDetailedCardComponent implements OnInit {
 
   delete(id: number): void {
 
-      this.assistantService.deleteItem(id).subscribe((res: any) => {
+      this.assistantService.Delete(id).subscribe((res: any) => {
         if (res) {
           this.router.navigateByUrl('/shelters');
         }

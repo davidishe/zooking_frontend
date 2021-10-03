@@ -1,4 +1,4 @@
-export class ShopParams {
+export class AssistantParams {
   sortSelected = 'name';
   regionIdSelected = 0;
   typeIdSelected = 0;

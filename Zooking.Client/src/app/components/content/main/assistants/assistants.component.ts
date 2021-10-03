@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import { RegionsService } from 'src/app/services/products/regions.service';
@@ -7,35 +7,40 @@ import { TypesService } from 'src/app/services/products/types.service';
 import { IAssistant } from 'src/app/shared/models/animals/assistant';
 import { IPagination } from 'src/app/shared/models/pagination';
 import { IRegion } from 'src/app/shared/models/region';
-import { ShopParams } from 'src/app/shared/models/shopParams';
-import { IAnimalType } from 'src/app/shared/models/type';
-import { AssistantsService } from '../items/assistants.service';
+import { AssistantParams } from 'src/app/shared/models/shopParams';
+import { IAssistantType } from 'src/app/shared/models/type';
+import { AssistantService } from './assistant.service';
+import { ParamsService } from './params.service';
 
 @Component({
-  selector: 'app-pets',
-  templateUrl: './pets.component.html',
-  styleUrls: ['./pets.component.scss']
+  selector: 'app-assistants',
+  templateUrl: './assistants.component.html',
+  styleUrls: ['./assistants.component.scss']
 })
-export class PetsComponent implements OnInit {
+
+
+export class AssistantsComponent implements OnInit {
 
   sub: Subscription;
-  types: IAnimalType[];
+  types: IAssistantType[];
   regions: IRegion[];
-  pets: IAssistant[];
-  totalCount: number;
-  shopParams = new ShopParams();
+  assistants: IAssistant[];
+  assistantsParams = new AssistantParams();
   decimalPipe = new DecimalPipe(navigator.language);
 
 
-  pageSizeOptions = [this.shopParams.pageSize, 10, 15];
   @ViewChild('search', {static: false}) searchTerm: ElementRef;
 
 
   constructor(
     private typesService: TypesService,
     private regionsService: RegionsService,
-    private petsService: AssistantsService
+    private paramsService: ParamsService,
+    private assistantService: AssistantService,
+  private cdr: ChangeDetectorRef
+
   ) {
+    this.assistantsParams = paramsService.getShopParams();
   }
 
   ngOnInit() {
@@ -64,18 +69,24 @@ export class PetsComponent implements OnInit {
   }
 
   getAllItems() {
-    this.sub = this.petsService.getAll().subscribe((response: IAssistant[]) => {
-      this.pets = response;
+    this.sub = this.assistantService.getAll().subscribe((response: IAssistant[]) => {
+      this.assistants = response;
     }, error => {
       console.log(error);
     });
   }
 
 
-
-
   onTypeSelected(typeId: number) {
-
+    const params = this.paramsService.getShopParams();
+    if (typeId !== params.typeIdSelected) {
+      params.typeIdSelected = typeId;
+    } else {
+      params.typeIdSelected = 0;
+    }
+    params.pageNumber = 0;
+    this.paramsService.setShopParams(params);
+    this.getAllItems();
   }
 
   onSortSelected(sort: string) {
@@ -92,15 +103,13 @@ export class PetsComponent implements OnInit {
 
 
 
-  ngAfterViewInit(): void {
-
-
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
   }
 
   onRegionSelected(regionId: number) {
 
   }
-
 
 
   ngOnDestroy(): void {

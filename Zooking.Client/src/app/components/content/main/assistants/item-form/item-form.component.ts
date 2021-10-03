@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { IShelterToCreate } from 'src/app/shared/models/shelters/shelter';
 import { IAssistant } from 'src/app/shared/models/animals/assistant';
-import { AssistantsService } from '../../items/assistants.service';
+import { AssistantService } from '../assistant.service';
 
 type Type = IAssistant;
 
@@ -26,7 +26,7 @@ export class ItemFormComponent implements OnInit {
 
   constructor(
     private breadcrumbService: BreadcrumbService,
-    private assistantService: AssistantsService,
+    private assistantService: AssistantService,
     private snackBar: MatSnackBar,
     private activatedRoute: ActivatedRoute,
     private router: Router
@@ -60,7 +60,7 @@ export class ItemFormComponent implements OnInit {
   }
 
   createPet() {
-    this.assistantService.createItem(this.item).subscribe((item: Type) => {
+    this.assistantService.Create(this.item).subscribe((item: Type) => {
       if (item) {
         this.openSnackBar('запись добавлена');
         // this.setTimeOut();

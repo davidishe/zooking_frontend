@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { IAssistant } from 'src/app/shared/models/animals/assistant';
-import { AssistantsService } from '../../content/main/items/assistants.service';
+import { AssistantService } from '../../content/main/assistants/assistant.service';
 
 type IItem = IAssistant;
 
@@ -25,7 +25,7 @@ export class ItemFormEditComponent implements OnInit {
 
   constructor(
     private breadcrumbService: BreadcrumbService,
-    private assistantService: AssistantsService,
+    private assistantService: AssistantService,
     private snackBar: MatSnackBar,
     private activatedRoute: ActivatedRoute,
     private router: Router
@@ -53,7 +53,7 @@ export class ItemFormEditComponent implements OnInit {
 
 
   updateAnimal(item: IItem) {
-    this.assistantService.updateItemShelter(item).subscribe((item: IItem) => {
+    this.assistantService.Update(item).subscribe((item: IItem) => {
       if (item) {        
         this.openSnackBar('запись обновлена');
         this.changedItem.emit(item);

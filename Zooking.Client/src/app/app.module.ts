@@ -23,15 +23,14 @@ import { BusyService } from './services/infrastructure/busy.service';
 import { LoadingInterceptor } from './components/core/interceptors/loading.interceptor';
 import { MatButtonModule } from './components/kit/buttons/mat-button/mat-button.module';
 import { NavbarModule } from './components/layouts/nav-menu/navbar.module';
-import { ItemsModule } from './components/content/main/items/items.module';
-import { ItemDetailedCardModule } from './components/kit/item-detailed-card/item-detailed-card.module';
-import { PetsModule } from './components/content/main/assistants/pets.module';
+import { ItemDetailedCardModule } from './components/kit/card/mat-card-hero/item-detailed-card/item-detailed-card.module';
 import { ItemFormEditModule } from './components/kit/item-form-edit/item-form-edit.module';
 import { HeroModule } from './components/layouts/hero/hero.module';
 import { AdminModule } from './components/content/admin/admin.module';
 import { TitleModule } from './components/kit/title/title.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HelpBoardModule } from './components/content/main/help-board/help-board.module';
+import { AssistantsModule } from './components/content/main/assistants/assistants.module';
 
 
 registerLocaleData(localeRu, 'ru');
@@ -51,9 +50,8 @@ const UserModules = [
     CoreModule,
     MatButtonModule,
     NavbarModule,
-    ItemsModule,
     ItemDetailedCardModule,
-    PetsModule,
+    AssistantsModule,
     ItemFormEditModule,
     HeroModule,
     AdminModule,

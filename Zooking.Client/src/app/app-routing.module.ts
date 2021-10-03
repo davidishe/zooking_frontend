@@ -5,11 +5,11 @@ import { ErrorComponent } from './components/error/error.component';
 import { ServererrorComponent } from './components/error/servererror/servererror.component';
 import { NotFoundComponent } from './components/error/not-found/not-found.component';
 import { ItemFormComponent } from './components/content/main/assistants/item-form/item-form.component';
-import { ItemDetailedCardComponent } from './components/kit/item-detailed-card/item-detailed-card.component';
+import { ItemDetailedCardComponent } from './components/kit/card/mat-card-hero/item-detailed-card/item-detailed-card.component';
 import { OnboardingPageGuard } from './components/core/guards/onboardingpage.guard';
 import { HelpBoardComponent } from './components/content/main/help-board/help-board.component';
 import { AdminGuard } from './components/core/guards/admin.guard';
-import { PetsComponent } from './components/content/main/assistants/pets.component';
+import { AssistantsComponent } from './components/content/main/assistants/assistants.component';
 
 
 const routes: Routes = [
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'servererror', component: ServererrorComponent, data: {breadcrumb: 'Ошибка сервера'} },
   { path: 'notfound', component: NotFoundComponent, data: {breadcrumb: 'Страница не найдена'} },
 
-  { path: 'assistants', component: PetsComponent, data: {breadcrumb: 'Питомцы'}},
+  { path: 'assistants', component: AssistantsComponent, data: {breadcrumb: 'Питомцы'}},
   { path: 'assistants/add', component: ItemFormComponent, data: {breadcrumb: 'Добавление'}},
   { path: 'assistants/:id', component: ItemDetailedCardComponent, data: {breadcrumb: 'Подробности'}},
 

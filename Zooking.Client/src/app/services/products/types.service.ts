@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IAnimalType } from 'src/app/shared/models/type';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { IAssistantType } from 'src/app/shared/models/type';
+
+
+type Type = IAssistantType;
+
 
 @Injectable()
 
 export class TypesService {
 
   baseUrl = environment.apiUrl;
-  types: IAnimalType[] = [];
+  apiUrl = 'types/';
+  types: Type[] = [];
 
 
 
@@ -20,7 +25,7 @@ export class TypesService {
     if (this.types.length > 0) {
       return of(this.types);
     }
-    return this.http.get<IAnimalType[]>(this.baseUrl + 'animals/types').pipe(
+    return this.http.get<Type[]>(this.baseUrl + this.apiUrl + 'all').pipe(
       map(response => {
         this.types = response;
         return this.types;
@@ -28,20 +33,20 @@ export class TypesService {
     );
   }
 
-  Create(productType: IAnimalType) {
-    return this.http.post(this.baseUrl + 'animals/create-type', productType);
+  Create(item: Type) {
+    return this.http.post(this.baseUrl + this.apiUrl + 'create', item);
   }
 
   GetById(id: number) {
-    return this.http.get(this.baseUrl + 'get-item/?id=' + id);
+    return this.http.get(this.baseUrl + 'getbyid?id=' + id);
   }
 
-  Update(productType: IAnimalType) {
-    return this.http.post(this.baseUrl + 'update-item', productType);
+  Update(item: Type) {
+    return this.http.post(this.baseUrl + 'update', item);
   }
 
   Delete(id: number) {
-    return this.http.delete(this.baseUrl + 'delete-item/?id=' + id);
+    return this.http.delete(this.baseUrl + 'delete?id=' + id);
   }
 
 
